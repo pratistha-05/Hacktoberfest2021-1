@@ -1,0 +1,28 @@
+/*
+An array nums of length n is beautiful if:
+
+nums is a permutation of the integers in the range [1, n].
+For every 0 <= i < j < n, there is no index k with i < k < j where 2 * nums[k] == nums[i] + nums[j].
+Given the integer n, return any beautiful array nums of length n. There will be at least one valid answer for the given n.
+*/
+
+#include <iostream>
+using namespacestd;
+int main()
+{
+    cout<<"Enter a number"<<endl;
+
+      int n;
+      cin>>n;
+      if(n==1)
+      return {1};
+      vector<int> even = beautifulArray(n/2);
+      vector<int> odd = beautifulArray(n-(n/2));
+      vector<int>ans;
+      for(auto e:even)
+          ans.push_back(2*e);
+      for(auto e:odd)
+          ans.push_back((2*e)-1);
+      return ans;
+    }
+};
